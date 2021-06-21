@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> </title>
+  <link rel="stylesheet" href="/css/form.css">
+  <link rel="stylesheet" href="/css/navbar.css">
+</head>
+<body>
+  <header class="header">
+    <ul id="main-navbar">
+      <% for( let i = 0; i < nav.length; i++ ) { %>
+        <li><a href="<%= nav[i].link %> "><%= nav[i].title %> </a></li>
+      <% } %>
+      </ul>
+  </header>
+  <main class="main">
+    <div class="container">
+      <div class="logo">Sign Up Form</div>
+      <div class="login-item">
+        <form action="" method="post" class="form form-login">
+          <div class="form-field">
+            <label class="user" for="login-username"><span class="hidden">Username</span></label>
+            <input id="login-username" type="text" class="form-input" placeholder="Username" required>
+          </div>
+
+          <div class="form-field">
+            <label class="lock" for="login-password"><span class="hidden">Password</span></label>
+            <input id="login-password" type="password" class="form-input" placeholder="Password" required>
+          </div>
+
+          <div class="form-field">
+            <input type="submit" value="Sign Up">
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

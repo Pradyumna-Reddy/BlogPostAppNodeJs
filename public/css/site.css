@@ -1,0 +1,91 @@
+html {
+  height: 100%;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.newPostButton{
+  display: flex;
+  flex-direction: row-reverse;
+  width: 30%;
+}
+
+.container{
+  background:rgba(58,63,68,0.5);
+  border-radius: 5px;
+  box-shadow: 0 1.5px 0 0 rgba(0,0,0,0.1);
+  padding: 30px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+}
+
+.logo{
+  color: #ffff;
+  font-size:20px;
+  text-align: center;
+  padding: 20px 20px 0;
+  margin:0;
+}
+
+.post{
+  color: #ffff;
+}
+
+.newPostButton{
+  background:rgba(64, 82, 100, 0.5);
+  padding: 0px 30px;
+  text-align: right;
+}
+
+.readMoreSpan{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 11px;
+}
+
+.postDescription{
+  border-style: solid;
+  border-color: #eee;
+  padding: 1rem;
+}
+
+input,textarea {
+  padding: 1rem;
+  margin: 10px 0;
+  border: 0;
+  outline: 0;
+  border-radius: 2px;
+}
+
+button{
+  border: 0;
+  border-radius: 2px;
+  padding: 1rem;
+  margin: 10px 0;
+  background-color: #00B9BC;
+  color: #eee;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+button[type="reset"] {
+  float: right;
+}
+
+button:hover{
+  background-color: #197071;
+}
+
+button a{
+  float: right;
+  text-decoration: none;
+}
+
+
+

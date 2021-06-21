@@ -1,0 +1,52 @@
+{
+  "name": "blogpostappnodejs",
+  "version": "1.0.0",
+  "description": "This is blog post",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "set DEBUG=app,app:* & nodemon app.js",
+    "lint": "eslint app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pradyumna-Reddy/BlogPostAppNodeJs.git"
+  },
+  "author": "Pradyumna Reddy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Pradyumna-Reddy/BlogPostAppNodeJs/issues"
+  },
+  "homepage": "https://github.com/Pradyumna-Reddy/BlogPostAppNodeJs#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chalk": "^4.1.1",
+    "cookie-parser": "^1.4.5",
+    "debug": "^2.6.9",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "mongodb": "^3.6.9",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.7",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.28.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4"
+  },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "ignore": [
+      "node_modules/**/node_modules"
+    ],
+    "delay": "2500",
+    "env": {
+      "NODE_ENV": "development",
+      "PORT": 4000
+    }
+  }
+}
