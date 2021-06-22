@@ -7,9 +7,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const { json: bodyparserJson, urlencoded: bodyparserUrlencoded } = require('body-parser');
 
-const nav = [{ link: '/posts', title: 'Posts' },
-  { link: '/auth/signIn', title: 'SignIn' },
-  { link: '/auth/signUp', title: 'SignUp' }];
+const nav = [{ link: '/posts', title: 'Posts' }];
 
 const postRouter = require('./src/routes/postRoutes')(nav);
 const adminRouter = require('./src/routes/adminRoutes')();
@@ -36,13 +34,7 @@ app.use('/posts', postRouter);
 app.use('/admin', adminRouter);
 app.use('/auth', authRouter);
 app.get('/', (req, res) => {
-  res.render(
-    'index',
-    {
-      title: 'Blog Post',
-      nav,
-    },
-  );
+  res.redirect('/posts/');
 });
 
 app.listen(port, () => {

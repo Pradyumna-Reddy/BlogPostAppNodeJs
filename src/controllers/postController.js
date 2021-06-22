@@ -1,14 +1,16 @@
 const { MongoClient, ObjectID } = require('mongodb');
 const debug = require('debug')('app:postController');
+const navLinksAdder = require('./helpers/navLinksAdderHelper');
 
 function postController(nav) {
   function getPostsList(req, res) {
-    const url = 'mongodb://localhost:27017';
-    const dbName = 'blogpost';
+    navLinksAdder(req, nav);
     let posts;
     (async function query() {
       let client;
       try {
+        const url = 'mongodb://localhost:27017';
+        const dbName = 'blogpost';
         client = await MongoClient.connect(url);
         debug('Connected...');
 
@@ -33,13 +35,14 @@ function postController(nav) {
   }
 
   function getPost(req, res) {
+    navLinksAdder(req, nav);
     const { id } = req.params;
-    const url = 'mongodb://localhost:27017';
-    const dbName = 'blogpost';
     let post;
     (async function mongo() {
       let client;
       try {
+        const url = 'mongodb://localhost:27017';
+        const dbName = 'blogpost';
         client = await MongoClient.connect(url);
         debug('Connected...');
 
@@ -62,17 +65,18 @@ function postController(nav) {
     }());
   }
 
-  function storePost(req, res) {
+  function addPost(req, res) {
+    navLinksAdder(req, nav);
     const {
       title, description, category, content,
     } = req.body;
 
-    const url = 'mongodb://localhost:27017';
-    const dbName = 'blogpost';
     let post;
-    (async function addPost() {
+    (async function storePost() {
       let client;
       try {
+        const url = 'mongodb://localhost:27017';
+        const dbName = 'blogpost';
         client = await MongoClient.connect(url);
         debug('Connected...');
 
@@ -104,7 +108,7 @@ function postController(nav) {
   return {
     getPostsList,
     getPost,
-    storePost,
+    addPost,
     allowUsertoPostsRoute,
   };
 }
