@@ -5,6 +5,10 @@ html {
    height: 100%;
 }
 
+body{
+  color: aliceblue;
+}
+
 .main {
 display: flex;
 justify-content: center;
@@ -16,6 +20,7 @@ color: #fff;
 }
 
 .container {
+  margin-top: 1rem;
 	background:rgba(58,63,68,0.5);
   border-radius: 5px;
   box-shadow: 0 1.5px 0 0 rgba(0,0,0,0.1);
@@ -121,4 +126,8 @@ input {
 
 .text--center {
   text-align: center;
+}
+
+.error{
+  color: red;
 }

@@ -21,7 +21,7 @@ function localStrategy(passport) {
 
         const user = await collection.findOne({ username });
 
-        if (user.password === password) {
+        if (user != null && user.password === password) {
           done(null, user);
         } else {
           done(null);

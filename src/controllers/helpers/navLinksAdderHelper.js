@@ -1,11 +1,15 @@
-function navLinksAdder(req, nav) {
+function getNavbar(req) {
   if (!req.user) {
-    nav.push({ link: '/auth/signIn', title: 'Login' });
-    nav.push({ link: '/auth/signUp', title: 'Sign up' });
-  } else {
-    nav.push({ title: req.user.username });
-    nav.push({ link: '/auth/Logout', title: 'Log out' });
+    return [
+      { link: '/auth/signUp', title: 'Sign up' },
+      { link: '/auth/signIn', title: 'Log in' },
+    ];
   }
+  return [
+    { link: '/user/posts', title: 'My Posts' },
+    { title: `Hi ${req.user.username}!` },
+    { link: '/auth/logout', title: 'Log out' },
+  ];
 }
 
-module.exports = navLinksAdder;
+module.exports = getNavbar;

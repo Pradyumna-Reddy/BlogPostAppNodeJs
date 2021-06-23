@@ -2,18 +2,17 @@ html {
   height: 100%;
 }
 
+
+body{
+  color: aliceblue;
+}
+
 main{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-}
-
-.newPostButton{
-  display: flex;
-  flex-direction: row-reverse;
-  width: 30%;
 }
 
 .container{
@@ -25,6 +24,13 @@ main{
   display: flex;
   flex-direction: column;
   width: 60vw;
+}
+
+.jumbotron{
+  background: rgba(58,63,68,0.5);
+  height: 15vh;
+  width: 80%;
+  text-align: center;
 }
 
 .logo{
@@ -39,21 +45,22 @@ main{
   color: #ffff;
 }
 
-.newPostButton{
-  background:rgba(64, 82, 100, 0.5);
-  padding: 0px 30px;
-  text-align: right;
-}
-
 .readMoreSpan{
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-decoration: none;
+  color: #999;
+  font-style: Verdana;
   font-size: 11px;
 }
 
 .postDescription{
-  border-style: solid;
-  border-color: #eee;
   padding: 1rem;
+  background: rgba(143, 152, 161, 0.5);
+}
+
+.content{
+  margin-top: 15px;
+  padding: 1rem;
+  background: rgba(126, 147, 158, 0.5);
 }
 
 input,textarea {
@@ -66,20 +73,16 @@ input,textarea {
 
 button{
   border: 0;
-  border-radius: 2px;
-  padding: 1rem;
-  margin: 10px 0;
-  background-color: #00B9BC;
-  color: #eee;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-button[type="reset"] {
-  float: right;
+  border-radius: 5px;
+  padding: .5em;
+  background-color: rgb(20, 220, 37);
+  color: white;
+  width: 10%;
 }
 
 button:hover{
-  background-color: #197071;
+  background-color: rgb(34, 178, 70);
+  color: White;
 }
 
 button a{
@@ -87,5 +90,32 @@ button a{
   text-decoration: none;
 }
 
+.a-button {
+  text-align: center;
+  width: 10%;
+  float: right;
+  background-color: rgb(20, 220, 37);
+  border-radius: 5px;
+  color: white;
+  padding: .5em;
+  text-decoration: none;
+}
 
+.a-button:focus,
+.a-button:hover {
+  background-color: rgb(34, 178, 70);
+  color: White;
+}
 
+.info-bar{
+  margin-top: 10px;
+  background: rgba(58,63,68,0.5);
+  padding: 10px;
+  width: 80%;
+  text-align: center;
+}
+
+#postButtonP{
+  margin-top: 1rem;
+  width: 60%;
+}

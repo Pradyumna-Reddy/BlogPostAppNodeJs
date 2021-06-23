@@ -7,11 +7,10 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const { json: bodyparserJson, urlencoded: bodyparserUrlencoded } = require('body-parser');
 
-const nav = [{ link: '/posts', title: 'Posts' }];
-
-const postRouter = require('./src/routes/postRoutes')(nav);
+const postRouter = require('./src/routes/postRoutes')();
 const adminRouter = require('./src/routes/adminRoutes')();
-const authRouter = require('./src/routes/authRoutes')(nav);
+const authRouter = require('./src/routes/authRoutes')();
+const userRouter = require('./src/routes/userRoutes')();
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -31,6 +30,7 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.use('/posts', postRouter);
+app.use('/user', userRouter);
 app.use('/admin', adminRouter);
 app.use('/auth', authRouter);
 app.get('/', (req, res) => {

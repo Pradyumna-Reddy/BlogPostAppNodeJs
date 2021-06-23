@@ -9,32 +9,33 @@
   <link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
-  <header class="header">
-    <ul id="main-navbar">
-      <% for( let i = 0; i < nav.length; i++ ) { %>
-        <li><a href="<%= nav[i].link %> "><%= nav[i].title %> </a></li>
-      <% } %>
-      </ul>
-  </header>
+  <%- include('header.ejs', nav)%>
   <main>
-    <div class="newPostButton container">
-      <a href="/posts/new"><button>New Post</button></a>
+    <div class="jumbotron">
+      <h1>Blog<sup>Post</sup></h1>
     </div>
-    <div>
-      <% for( let i = 0; i < posts.length; i++ ) { %>
-        <div class="post container">
-          <div class="postTitle"><h2><%= posts[i].title %></h2></div>
-          <div class="postDescription">
-            <%= posts[i].description %>
-            <a href="#">
-              <span>
-                Read more...
+    <% if (posts.length > 0) { %>
+      <div>
+        <% for( let i = 0; i < posts.length; i++ ) { %>
+          <div class="post container">
+            <div class="postTitle"><h2><%= posts[i].title %></h2></div>
+            <div class="postDescription">
+              <%= posts[i].description %>
+            </div>
+            <a href="/posts/<%= posts[i]._id  %> " class="readMoreSpan postDescription">
+              <span >
+                Click here to read more...
               </span>
             </a>
           </div>
-        </div>
-      <% } %>
-    </div>
+        <% } %>
+      </div>
+    <% } else { %>
+      <div class="info-bar">
+        <h2>Nothing here. Sign in and posting something...</h2>
+      </div>
+    <% } %>
   </main>
 </body>
 </html>
+

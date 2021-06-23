@@ -1,0 +1,12 @@
+<header class="header">
+  <div class="main-navbar">
+    <ul>
+      <li><a href="<%= '/' %>"  id="logo">Posts</a></li>
+    </ul>
+    <ul>
+      <% for( let i = 0; i < nav.length; i++ ) { %>
+        <li><a href="<%= nav[i].link %>"><%= nav[i].title %> </a></li>
+      <% } %>
+    </ul>
+  </div>
+</header>

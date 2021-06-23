@@ -9,13 +9,7 @@
   <link rel="stylesheet" href="/css/navbar.css">
 </head>
 <body>
-  <header class="header">
-    <ul id="main-navbar">
-      <% for( let i = 0; i < nav.length; i++ ) { %>
-        <li><a href="<%= nav[i].link %> "><%= nav[i].title %> </a></li>
-      <% } %>
-      </ul>
-  </header>
+  <%- include('header.ejs', nav)%>
   <main class="main">
     <div class="container">
       <div class="logo">Login Form</div>
@@ -23,18 +17,23 @@
         <form action="" method="post" class="form form-login">
           <div class="form-field">
             <label class="user" for="login-username"><span class="hidden">Username</span></label>
-            <input id="login-username" type="text" class="form-input" placeholder="Username" required>
+            <input name="username" id="login-username" type="text" class="form-input" placeholder="Username" required>
           </div>
 
           <div class="form-field">
             <label class="lock" for="login-password"><span class="hidden">Password</span></label>
-            <input id="login-password" type="password" class="form-input" placeholder="Password" required>
+            <input name="password" id="login-password" type="password" class="form-input" placeholder="Password" required>
           </div>
 
           <div class="form-field">
             <input type="submit" value="Log in">
           </div>
         </form>
+        <div>
+          <% if (message == 1) { %>
+            <p class="error">Incorrect username/password</p>
+          <% } %>
+        </div>
       </div>
     </div>
   </main>

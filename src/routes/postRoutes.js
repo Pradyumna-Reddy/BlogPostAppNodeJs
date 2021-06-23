@@ -3,29 +3,13 @@ const postController = require('../controllers/postController');
 
 const postRouter = express.Router();
 
-function router(nav) {
-  const { getPost, getPostsList, addPost } = postController(nav);
-
-  // postRouter.use(allowUsertoPostsRoute);
+function router() {
+  const {
+    getPost, getPostsList,
+  } = postController();
 
   postRouter.route('/')
-    .get(getPostsList)
-    .post(addPost);
-
-  postRouter.route('/new')
-    .get((req, res) => {
-      if (!req.user) {
-        res.redirect('/auth/signIn');
-      } else {
-        res.render(
-          'createPost',
-          {
-            title: 'Create Post',
-            nav,
-          },
-        );
-      }
-    });
+    .get(getPostsList);
 
   postRouter.route('/:id')
     .get(getPost);
