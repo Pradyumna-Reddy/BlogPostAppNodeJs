@@ -68,7 +68,8 @@ function userController() {
 
   function getEditPost(req, res) {
     const nav = getNavbar(req);
-    const { id } = req.params.id;
+    const { id } = req.params;
+    debug(id);
     let post;
     (async function mongo() {
       let client;
@@ -82,6 +83,7 @@ function userController() {
       } catch (err) {
         debug(err.stack);
       }
+      debug(post);
       client.close();
       res.render('editPost', {
         title: 'Edit',
@@ -95,7 +97,7 @@ function userController() {
     const {
       title, description, content,
     } = req.body;
-    const { id } = req.params.id;
+    const { id } = req.params;
     let post;
     (async function storePost() {
       let client;
@@ -107,7 +109,7 @@ function userController() {
         post = {
           _id: new ObjectID(id), title, description, content, creatorId: req.user.username,
         };
-        const result = await collection.findOneAndUpdate({ _id: new ObjectID(id) }, post);
+        const result = await collection.replaceOne({ _id: new ObjectID(id) }, post);
         debug(result);
       } catch (error) {
         debug(error.stack);
@@ -118,7 +120,7 @@ function userController() {
   }
 
   function deletePost(req, res) {
-    const { id } = req.params.id;
+    const { id } = req.params;
     (async function storePost() {
       let client;
       try {

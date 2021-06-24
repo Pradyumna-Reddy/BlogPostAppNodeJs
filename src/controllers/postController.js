@@ -16,14 +16,21 @@ function postController() {
         const collection = db.collection('posts');
         posts = await collection.find().toArray();
       } catch (error) {
+        if (!client) {
+          debug('No mongo connection established!');
+        }
         debug(error.stack);
       }
-      client.close();
-      res.render('index', {
-        title: 'Posts',
-        nav,
-        posts,
-      });
+      if (client) {
+        client.close();
+        res.render('index', {
+          title: 'Posts',
+          nav,
+          posts,
+        });
+      } else {
+        res.end('No mongo connection');
+      }
     }());
   }
 

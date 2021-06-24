@@ -12,7 +12,7 @@
   <%- include('header.ejs', nav)%>
   <main>
     <div class="jumbotron">
-      <h1>Blog<sup>Post</sup></h1>
+      <h1>Blog<sup>Post<sub>App</sub></sup></h1>
     </div>
     <% if (posts.length > 0) { %>
       <div>
@@ -23,7 +23,7 @@
               <%= posts[i].description %>
             </div>
             <a href="/posts/<%= posts[i]._id  %> " class="readMoreSpan postDescription">
-              <span >
+              <span>
                 Click here to read more...
               </span>
             </a>
